@@ -1,13 +1,9 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { InitialState, Product } from "../types";
+import { InitialState, Product, Basket } from "../types";
 
 const initialState: InitialState = {
   products: [],
-  basket: {
-    products: [],
-    totalPrice: 0,
-    totalCount: 0,
-  },
+  basket: [],
 };
 
 const rootSlice = createSlice({
@@ -21,16 +17,20 @@ const rootSlice = createSlice({
       }
       state.products = newProducts;
     },
+    setProductsInBasket: (state, action: PayloadAction<Basket[]>) => {
+      state.basket = action.payload;
+    },
     resetStore: (state) => {
-      // const { products } = state;
+      const { products } = state;
       const resetState = {
         ...initialState,
       };
-      return { ...resetState };
+      return { ...resetState, products: products };
     },
   },
 });
 
-export const { setProducts, resetStore } = rootSlice.actions;
+export const { setProducts, setProductsInBasket, resetStore } =
+  rootSlice.actions;
 
 export const rootReducer = rootSlice.reducer;

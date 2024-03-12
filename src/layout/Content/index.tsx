@@ -1,24 +1,23 @@
 import React, { useEffect, useState } from 'react';
-import Cards from '@/components/Cards';
-import Button from '@/components/Button';
 import { useDispatch, useSelector } from 'react-redux';
+import Cards from '@/components/Cards';
+import Loader from '@components/Loader';
 import { RootState } from '@store/index';
-import { resetStore, setProducts } from '@store/slices/rootSlice';
+import { setProducts } from '@store/slices/rootSlice';
 import { Product } from '@store/types';
 import { getAllProducts } from '@utils/getAllProducts';
-// import usePreventPageUnload from '@hooks/usePreventPageUnload';
+import usePreventPageUnload from '@hooks/usePreventPageUnload';
 
 const Content: React.FC = () => {
 
     const dispatch = useDispatch();
     const products = useSelector((state: RootState) => state.root.products);
+    const basket = useSelector((state: RootState) => state.root.basket);
 
     const [isLoading, setIsLoading] = useState(true);
+    const [hasUnsavedChanges, setHasUnsavedChanges] = useState(false);
 
-
-    // const [hasUnsavedChanges, setHasUnsavedChanges] = useState(true);
-    // usePreventPageUnload(hasUnsavedChanges);
-
+    usePreventPageUnload(hasUnsavedChanges);
 
     useEffect(() => {
         getAllProducts()
@@ -33,9 +32,17 @@ const Content: React.FC = () => {
             });
     }, []);
 
+    useEffect(() => {
+        if (basket.length > 0) {
+            setHasUnsavedChanges(true);
+        } else {
+            setHasUnsavedChanges(false);
+        }
+    }, [dispatch, basket]);
+
 
     if (isLoading) {
-        return <h1>Loading...</h1>
+        return <Loader />
     }
 
     // продуктов еще нет
@@ -43,12 +50,7 @@ const Content: React.FC = () => {
         return <h1>Продуктов еще нет</h1>
     }
 
-    return (
-        <div>
-            <Button style={{ borderRadius: 7, marginBottom: 10 }} title='Reset Store' onClick={() => dispatch(resetStore())} />
-            <Cards products={Object.values(products)} />
-        </div>
-    )
+    return <Cards products={Object.values(products)} />
 };
 
 export default Content;

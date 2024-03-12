@@ -2,13 +2,8 @@
 
 .buttonContainer {
   display: flex;
-  border: 1px solid rgba(0, 140, 255, 1);
+  border: 1.7px solid rgba(0, 140, 255, 1);
   border-radius: 7px;
-  color: rgba(0, 140, 255, 1);
   overflow: hidden;
-}
-
-.separator {
-  width: 2px;
-  background-color: rgba(0, 140, 255, 1);
+  color: rgba(0, 140, 255, 1);
 }

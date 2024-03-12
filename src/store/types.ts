@@ -1,6 +1,6 @@
 export interface InitialState {
   products: Product[];
-  basket: Basket;
+  basket: Basket[];
 }
 
 export interface Product {
@@ -19,7 +19,9 @@ export interface Rating {
 }
 
 export interface Basket {
-  products: Product[];
-  totalPrice: number;
-  totalCount: number;
+  id: number;
+  title: string;
+  image: string;
+  price: number;
+  count: number;
 }
