@@ -1,0 +1,22 @@
+* {
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  min-height: 100vh;
+}
+
+.column {
+  padding: 10px;
+}
+
+.large {
+  flex: 3;
+  background-color: #f0f0f0; /* Пример цвета фона для наглядности */
+}
+
+.small {
+  flex: 1;
+  background-color: #d0d0d0; /* Пример цвета фона для наглядности */
+}
