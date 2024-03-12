@@ -1,7 +1,7 @@
 {
   "name": "shopping-cart",
   "private": true,
-  "version": "1.0.45",
+  "version": "1.0.48",
   "scripts": {
     "dev": "rsbuild dev --open",
     "build": "rsbuild build",
@@ -12,7 +12,8 @@
     "@vkontakte/icons": "^2.102.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-redux": "^9.1.0"
+    "react-redux": "^9.1.0",
+    "redux-persist": "^6.0.0"
   },
   "devDependencies": {
     "@rsbuild/core": "^1.0.0",
