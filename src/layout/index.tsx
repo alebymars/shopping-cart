@@ -1,15 +1,16 @@
 import React from 'react';
-import './Layout.css';
-import Content from './Content';
-import Sidebar from './Sidebar';
+import Content from '@layout/Content';
+import Sidebar from '@layout/Sidebar';
+import styles from './Layout.module.css';
 
 const Layout: React.FC = () => {
+
     return (
-        <div className="container">
-            <div className="column large">
+        <div className={styles.container}>
+            <div className={`${styles.column} ${styles.large}`}>
                 <Content />
             </div>
-            <div className="column small">
+            <div className={`${styles.column} ${styles.small}`}>
                 <Sidebar />
             </div>
         </div>

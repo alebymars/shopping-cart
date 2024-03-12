@@ -14,12 +14,12 @@ const rootSlice = createSlice({
   name: "data",
   initialState,
   reducers: {
-    setProducts: (state, action: PayloadAction<Partial<Product>>) => {
-      const newProduct = { ...state.products, ...action.payload } as Product[];
+    setProducts: (state, action: PayloadAction<Partial<Product[]>>) => {
+      const newProducts = { ...state.products, ...action.payload } as Product[];
       if (!state.products) {
         return;
       }
-      state.products = newProduct;
+      state.products = newProducts;
     },
     resetStore: (state) => {
       // const { products } = state;

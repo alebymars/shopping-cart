@@ -10,6 +10,13 @@ export default defineConfig({
       "@store": "./src/store",
       "@utils": "./src/utils",
       "@types": "./src/types",
+      "@hooks": "./src/hooks",
+      "@assets": "./src/assets",
     },
+  },
+  html: {
+    title: "Shopping Cart",
+    favicon: "./src/assets/icon/icon.png",
+    appIcon: "./src/assets/icon/icon.png",
   },
 });

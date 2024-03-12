@@ -1,0 +1,43 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  overflow: hidden;
+  font-family: "Rubik", sans-serif;
+}
+
+.image {
+  background: #ffffff;
+  padding: 10px;
+  width: 100%;
+  height: 150px;
+  object-fit: contain;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 10px;
+  justify-content: space-around;
+}
+
+.title {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.description {
+  font-size: 14px;
+}
+
+.price {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.count {
+  font-size: 14px;
+}
