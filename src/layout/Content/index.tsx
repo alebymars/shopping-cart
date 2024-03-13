@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import Cards from '@/components/Cards';
+import Cards from '@components/Cards';
 import Loader from '@components/Loader';
 import { RootState } from '@store/index';
 import { setProducts } from '@store/slices/rootSlice';
